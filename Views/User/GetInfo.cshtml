@@ -1,0 +1,44 @@
+﻿@model IEnumerable<UserRegistration_ado.Models.User>
+
+@{
+    ViewBag.Title = "GetInfo";
+}
+
+<h2>GetInfo</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <p>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
+            </td>
+        </tr>
+        </p>
+    }
+</table>
